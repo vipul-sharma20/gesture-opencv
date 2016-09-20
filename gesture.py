@@ -13,13 +13,14 @@ while(cap.isOpened()):
                                cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
     cv2.imshow('Thresholded', thresh1)
 
-    # uncomment the lines below(17-18) if using OpenCV 3+ and remove lines 21-22
-    #image, contours, hierarchy = cv2.findContours(thresh1.copy(), \
-    #        cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
+    (version, _, _) = cv2.__version__.split('.')
 
-    # works only for OpenCV 2.4.x
-    contours, hierarchy = cv2.findContours(thresh1.copy(),cv2.RETR_TREE, \
-            cv2.CHAIN_APPROX_NONE)
+    if version is '3':
+        image, contours, hierarchy = cv2.findContours(thresh1.copy(), \
+               cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
+    elif version is '2':
+        contours, hierarchy = cv2.findContours(thresh1.copy(),cv2.RETR_TREE, \
+               cv2.CHAIN_APPROX_NONE)
 
     max_area = -1
     for i in range(len(contours)):
