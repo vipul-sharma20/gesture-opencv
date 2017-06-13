@@ -6,7 +6,7 @@ and convex hull of hand palm using opencv library used for computer vision
 processes.
 
 * Built using OpenCV 2.4.12 on Python 2.7.10
-* Works on OpenCV 2.4.x and Python 2.x
+* Works on OpenCV 2.4.x, 3.2.x and Python 2.x, Python 3.x
 
 Video
 =====
