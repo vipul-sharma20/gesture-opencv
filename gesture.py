@@ -43,9 +43,6 @@ while(cap.isOpened()):
     x, y, w, h = cv2.boundingRect(cnt)
     cv2.rectangle(crop_img, (x, y), (x+w, y+h), (0, 0, 255), 0)
 
-    # finding convex hull
-    hull = cv2.convexHull(cnt)
-
     # drawing contours
     drawing = np.zeros(crop_img.shape,np.uint8)
     cv2.drawContours(drawing,[cnt], 0, (0, 255, 0), 0)
@@ -85,7 +82,6 @@ while(cap.isOpened()):
         # draw a line from start to end i.e. the convex points (finger tips)
         # (can skip this part)
         cv2.line(crop_img,start, end, [0,255,0], 2)
-        #cv2.circle(crop_img,far,5,[0,0,255],-1)
 
     # define actions required
     if count_defects == 1:
@@ -100,8 +96,6 @@ while(cap.isOpened()):
     else:
         cv2.putText(img,"Hello World!!!", (50, 50),\
                     cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
-    #cv2.imshow('drawing', drawing)
-    #cv2.imshow('end', crop_img)
 
     # show appropriate images in windows
     cv2.imshow('Gesture', img)
