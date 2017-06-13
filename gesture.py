@@ -48,8 +48,8 @@ while(cap.isOpened()):
 
     # drawing contours
     drawing = np.zeros(crop_img.shape,np.uint8)
-    cv2.drawContours(drawing,[cnt], 0, (0, 255, 0), 0)
-    cv2.drawContours(drawing,[hull], 0,(0, 0, 255), 0)
+    cv2.drawContours(drawing, [cnt], 0, (0, 255, 0), 0)
+    cv2.drawContours(drawing, [hull], 0,(0, 0, 255), 0)
 
     # finding convex hull
     hull = cv2.convexHull(cnt, returnPoints=False)
@@ -100,8 +100,6 @@ while(cap.isOpened()):
     else:
         cv2.putText(img,"Hello World!!!", (50, 50),\
                     cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
-    #cv2.imshow('drawing', drawing)
-    #cv2.imshow('end', crop_img)
 
     # show appropriate images in windows
     cv2.imshow('Gesture', img)
