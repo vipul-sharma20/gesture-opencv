@@ -57,7 +57,7 @@ while(cap.isOpened()):
     cv2.drawContours(thresh1, contours, -1, (0, 255, 0), 3)
 
     # applying Cosine Rule to find angle for all defects (between fingers)
-    # with angle > 90º and ignore defects
+    # with angle > 90 degrees and ignore defects
     for i in range(defects.shape[0]):
         s,e,f,d = defects[i,0]
 
@@ -73,7 +73,7 @@ while(cap.isOpened()):
         # apply cosine rule here
         angle = math.acos((b**2 + c**2 - a**2)/(2*b*c)) * 57
 
-        # ignore angles > 90º and highlight rest with red dots
+        # ignore angles > 90 and highlight rest with red dots
         if angle <= 90:
             count_defects += 1
             cv2.circle(crop_img, far, 1, [0,0,255], -1)
